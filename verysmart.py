@@ -9,6 +9,8 @@ mysyms = []
 vowels = ['a','e','i','o','u']
 letters_by_score = {}
 counter = 0
+helping_verbs = ["am", "is", "are", "was", "were", "being", "been","be",
+"have", "has", "had", "do", "does", "did", "will", "would", "shall","should","may", "might", "must", "can", "could"]
 for i in string.ascii_lowercase: #Creates the map of letters and scores
     counter += 1
     letters_by_score[i] = counter
@@ -24,6 +26,8 @@ def get_score(word):
     #   score increase for how late that specific letter appears in the alphabet
 
     vowels = ['a','e','i','o','u']
+
+
 
     vowelcount = 0
     score = 0
@@ -48,12 +52,13 @@ def get_score(word):
 
 for word in list_sentence: #Go through all words
     syn_list = d.synonym(word)
-
     if not syn_list == [] or not syn_list == None: #Error catching
         try: #More error catching
 
-            if word.lower() == 'i':
 
+
+            if word.lower() == 'i' or word.lower() == 'a' or word.lower() == 'is' or word.lower() == 'and' or word.lower() in helping_verbs:
+                print("Threw a controlled error.")
                 raise ValueError("We don't want this word to change!")
             largest = syn_list[0]
 
@@ -77,4 +82,6 @@ for word in list_sentence: #Go through all words
     else:
         mysyms.append(word)
 
-print(mysyms)
+for i in range(3):
+    print('\n')
+print(' '.join(mysyms))
