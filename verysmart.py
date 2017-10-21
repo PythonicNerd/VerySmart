@@ -80,7 +80,7 @@ for word in list_sentence: #Go through all words
                 mysyms.append(largest + 's')
             elif word[-3:] == 'ing':
                 mysyms.append(largest + 'ing')
-            elif word[-1] != 's':
+            else:
                 mysyms.append(largest)
 
 
