@@ -57,7 +57,7 @@ def get_score(word):
 
 
 for word in list_sentence: #Go through all words
-
+    syn_list = d.synonym(word)
     if not syn_list == [] or not syn_list == None: #Error catching
         try: #More error catching
 
@@ -67,7 +67,7 @@ for word in list_sentence: #Go through all words
                 raise ValueError("We don't want this word to change!")
             largest = syn_list[0]
 
-            syn_list = d.synonym(word)
+
             for i in syn_list: #Find largest word in synonym list
 
 
