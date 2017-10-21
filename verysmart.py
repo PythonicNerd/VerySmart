@@ -76,12 +76,16 @@ for word in list_sentence: #Go through all words
                 if get_score(i) > get_score(largest):
                     largest = i
 
+            if word[-1] == 's':
+                mysyms.append(largest + 's')
+            elif word[-3:] == 'ing':
+                mysyms.append(largest + 'ing')
+            elif word[-1] != 's':
+                mysyms.append(largest)
 
-
-            mysyms.append(largest)
 
         except Exception as e:
-
+            print(e)
             mysyms.append(word)
 
     else:
