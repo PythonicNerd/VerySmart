@@ -1,6 +1,9 @@
 from PyDictionary import PyDictionary
 import string
 import enchant
+import language_check
+
+tool = language_check.LanguageTool('en-US')
 
 check_w = enchant.Dict("en_US")
 d=PyDictionary()
@@ -93,4 +96,11 @@ for word in list_sentence: #Go through all words
 
 for i in range(3):
     print('\n')
-print(' '.join(mysyms))
+
+
+complete_sentence = ' '.join(mysyms)
+error = tool.check(complete_sentence)
+print(complete_sentence)
+
+for i in range(len(error)):
+    print(error[i])
