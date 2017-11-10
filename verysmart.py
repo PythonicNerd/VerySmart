@@ -88,7 +88,7 @@ for word in list_sentence: #Go through all words
 
 
         except Exception as e:
-            print(e)
+            #print(e)
             mysyms.append(word)
 
     else:
@@ -100,7 +100,6 @@ for i in range(3):
 
 complete_sentence = ' '.join(mysyms)
 error = tool.check(complete_sentence)
-print(complete_sentence)
-
-for i in range(len(error)):
-    print(error[i])
+for i in error:
+    print(i)
+print(language_check.correct(complete_sentence, error))
